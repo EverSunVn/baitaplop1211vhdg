@@ -57,20 +57,62 @@ header {
   list-style: none;
 }
 
-.main-content nav ul a{
-  position: relative;
-  color: rgb(102, 102, 102);
-  padding: 5px 15px;
-  font-family: 'Arial Black', sans-serif;
-  font-weight: 900;
-  font-style: normal;
-  border-radius: 5px;
-  transition: 0.5s ease;
-  font-size: 20px;
-  text-decoration: none;
+
+/* --- Desktop & Base Styles --- */
+.main-content nav {
+  background-color: #350000;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Use a percentage for padding so it shrinks with the screen */
+  padding: 10px 2%; 
+  box-sizing: border-box;
 }
 
-.main-content nav ul a span{
+.main-content nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Reduced gap so it fits more screens before breaking */
+  gap: 2em; 
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-wrap: wrap; /* Safety net: items will wrap instead of breaking the box */
+}
+
+.main-content nav ul a {
+  position: relative;
+  color: rgb(102, 102, 102);
+  padding: 10px 15px;
+  font-family: 'Arial Black', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.5s ease;
+}
+
+/* --- The Mobile Trigger --- */
+@media (max-width: 768px) {
+  .main-content nav ul {
+    /* Stack links vertically on small screens */
+    flex-direction: column; 
+    gap: 0.5em;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .main-content nav ul a {
+    width: 100%;
+    text-align: center;
+    font-size: 16px; /* Slightly smaller for mobile */
+  }
+}
+
+/* --- Your Original Span Animations (Kept Exactly the Same) --- */
+.main-content nav ul a span {
   position: absolute;
   top: 0;
   left: 0;
@@ -84,12 +126,14 @@ header {
   transition: 0.5s ease;
 }
 
-.main-content nav ul a:hover span{
+.main-content nav ul a:hover span,
+.main-content nav ul a.active span {
   transform: scale(1) translateY(0);
   opacity: 1;
 }
 
-.main-content nav ul a:hover{
+.main-content nav ul a:hover,
+.main-content nav ul a.active {
   color: rgb(255, 196, 0);
 }
 
